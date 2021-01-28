@@ -1,0 +1,140 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Acceuil</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/c2035ffa68.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="css/search.css">
+
+
+  <style>
+    .input-icons i {
+      position: absolute;
+    }
+
+    .input-icons {
+      width: 100%;
+      margin-bottom: 10px;
+border-radius: 20px;
+    }
+
+    .icon {
+      padding: 10px;
+      color: #c3953f;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .input-field { 
+            width: 100%; 
+            padding: 10px; 
+            text-align: center;
+             border: none;
+           
+        }
+
+    h2 {
+      color: #c3953f;
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <header>
+
+    <div class="header-area ">
+      <div id="sticky-header" class="main-header-area">
+        <div class="container-fluid">
+          <div class="header_bottom_border">
+
+            <div class="row align-items-center">
+              <div class="col-xl-11 col-lg-10">
+                <div class="logo">
+                  <a href="home.html">
+                    <img class="logo" src="../assets/img/logo.png" alt="" style="height:80px;">
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-1 col-lg-2">
+                <button type="button" class="btn btn-warning mx-auto">Admin</button>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <div class="row">
+    <div class="col-xl-7 col-lg-8 ">
+      <img src="../assets/img/Flight.svg" class="rounded float-start" style="width: 80%;height: 92%;">
+
+    </div>
+    <div class="col-xl-5 col-lg-4  mb-5" style="width: 40%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;;">
+
+      <center>
+        <h2>Je prépare mon voyage</h2>
+       
+        <form action="/search" method="POST" style="margin-top: 30%;">
+
+
+            <div class="col-lg-8  mx-auto">
+
+              <div class="input-icons mb-4 ">
+                <i class="fas fa-map-marker-alt icon"></i>
+                <input type="text" class="input-field" id="ville-depart" name="ville-depart"
+                  placeholder="Ville de départ">
+              </div>
+              <div class="input-icons mb-4 ">
+                <i class="fas fa-map-marker-alt icon"></i>
+                <input type="text" class="input-field" id="ville-arrive" name="ville-arrive"
+                  placeholder="Ville d'arrivé">
+              </div>
+              <div class="input-icons mb-4">
+                <i class="far fa-calendar-alt icon"></i>
+                <input type="datetime-local" class="input-field" id="date-heur-depart" name="date-heur-depart"
+                  placeholder="Date et Heur de départ">
+              </div>
+              <div class="input-icons mb-4">
+                <i class="fa fa-user icon"></i> 
+                <input type="text" class="input-field" id="nbrPlace" name="nombrePlace"
+                  placeholder="Nombre de Place">
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-warning">Rechercher</button>
+ 
+
+
+
+
+        </form>
+      </center>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
