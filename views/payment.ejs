@@ -63,27 +63,29 @@
     
   
       <div class="form" >
-      <input type="hidden" id="idRes" name="idRes"   value="<%= lastId  %>">
+     
         <div class="form-row">
           <div class="input-group">
             <label>Cardholder Name</label>
-            <input type="text"  id="name" name="name" required>
+             <input type="hidden" id="idRes" name="idRes"   value="<%= IdRes %>">
+                 <input type="hidden" id="idRes" name="idClient"   value="<%= idClient %>">
+            <input type="text"  id="Name" name="nom" required>
           </div>
         </div>
         <div class="form-row">
           <div class="input-group">
             <label>Card Number </label>
-            <input maxlength="16" min="1" type="number"  id="cardNumber" name="cardNumber" required>
+            <input type="number"  id="card_Number" name="card_Number" required>
           </div>
         </div>
         <div class="form-row">
           <div class="input-group">
             <label>Expiry Date</label>
-            <input type="date"  id="dateExp" name="dateExp" required>
+            <input type="date"  id="dateExp" name="date_Exp" required>
           </div>
           <div class="input-group">
             <label>CVS</label>
-            <input maxlenght="3" min="1" type="number" id="cvs" name="cvs" required>
+            <input type="number" id="cvs" name="cvs" required>
           </div>
         </div>
       </div>
@@ -92,6 +94,15 @@
     <input class="button" type="submit" value="Complete Payment">
       
     </footer>
+
+
+
+
+
+
+
+
+
   </form>
 </div>
 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script src="https://kit.fontawesome.com/c2035ffa68.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/stylePayment.css">
+        <style>
+            .check {
+                width: 100%;
+                margin-top: -25%;
+            }
+
+            h1 {
+                font-size: 50px;
+                color: white;
+                font-family: sans-serif;
+                font-weight: bold;
+                width: 200%;
+                text-align: center;
+                margin-left: -51%;
+            }
+
+            input {
+                background-color: #7bbf6a;
+                color: white;
+                padding: 17px 100px;
+                margin: 30px 85px;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+                outline: none;
+            }
+
+            input:hover {
+                background-color: white;
+                color: black;
+            }
+
+            p {
+                color: white;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="header-area ">
+                <div id="sticky-header" class="main-header-area">
+                    <div class="container-fluid">
+                        <div class="header_bottom_border">
+                            <div class="row align-items-center">
+                                <div class="col-xl-10 col-lg-10 col-9">
+                                    <div class="logo"><a href="/"><img class="logo" src="/img/logo.png"
+                                                style="height:80px;margin-right: 90%;"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container"><img src="/img/thank.png" class="rounded float-start  ml-5 check">
+            <h1>Thank you for getting in touch !</h1>
+            <p>We appreciate you contacting us. One of our Team member will get back in touch with you soon !<br>Have a
+                great day !</p><input type="submit" value="Recevoir un e-mail"  onclick="sendEmail()">
+        </div>
+        <script type="text/javascript">
+            function sendEmail() {
+                Email.send({
+
+                        SecureToken: "5fc31ec1-dc3d-4838-8009-564b4fe0c22c",
+                        To: '<%= rows[0].email %>',
+                        From: "elhanchaoui.emailtest@gmail.com",
+                        Subject: "Confirmation d'achat de ticket de vol ",
+                        Body: "Bonjour <%= rows[0].Nom %> <%= rows[0].Prenom %> \nVotre achat de ticket a été enregistré avec succès\nVoici les détails de vos vols :  ville de départ/d’arrivé:<%= rows[0].ville_depart %> --> <%= rows[0].ville_arrive %> l’heure départ /d’arrivé:<%= rows[0].heur_depart %>-<%= rows[0].heur_arrive %>\nla date de départ/Arrivé:<%= rows[0].date_depart %>-<%= rows[0].date_arrive %> escale :<%= rows[0].escale %> nombre de places que vous avez réservées: <%= rows[0].nbrPlaceReserver  %>",
+                        Attachments: [{
+                                name: "Image.jpg",
+                                path: "https://cdn.pixabay.com/photo/2017/02/19/23/10/travel-2081174_960_720.jpg"
+                            }
+
+                        ]
+                    }
+
+                ).then(function (message) {
+                        alert("email a été envoyé avec succès, si vous ne recevez pas l'email , veuillez vérifier votre spam")
+                    }
+
+                );
+            }
+        </script>
+    </body>
+
+    </html>

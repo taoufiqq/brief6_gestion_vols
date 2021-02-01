@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require("../config/dbconnection");
 
+fs = require('fs');
 
 router.get('/', (req, res) => {
     res.render('index')
@@ -29,6 +30,9 @@ router.get('/confirmation', (req, res) => {
 router.get('/login', (req, res) => {
     res.render('login');
 })
+router.get('/thanks', (req, res) => {
+    res.render('thanks');
+})
 // search function   
 
 
@@ -47,7 +51,7 @@ router.post('/search/vols', function (req, res) {
 
 
 
-    db.query('SELECT IdVol,ville_depart,ville_arrive,heur_depart,heur_arrive,date_depart,date_arrive,nombrePlace FROM vols WHERE ville_depart LIKE "%' + str.DepartVille + '%" AND ville_arrive LIKE "%' + str.ArriveVille + '%"', function (err, rows, fields) {
+    db.query('SELECT IdVol,ville_depart,ville_arrive,heur_depart,heur_arrive,date_depart,date_arrive,escale,nombrePlace FROM vols WHERE ville_depart LIKE "%' + str.DepartVille + '%" AND ville_arrive LIKE "%' + str.ArriveVille + '%"', function (err, rows, fields) {
         if (err) throw err;
         for (let i = 0; i < rows.length; i++) {
 
@@ -101,6 +105,8 @@ router.post("/authentification", (req, res) => {
             });
 
         });
+
+
     });
 
 });
@@ -122,29 +128,64 @@ router.post("/lastCheck", (req, res) => {
     db.query(query, (err, result) => {
         if (err) {
             return res.status(500).send(err);
+           
+            
         }
-
+        res.render('payment', {
+ 
+            IdRes:result.insertId,
+            idClient:idClient
+    
+        });
+   
     });
-    res.redirect('/payment');
+    
+
 
 });
 
 router.post("/payment", (req, res) => {
 
-    let Name = req.body.name;
-    let card_number = req.body.cardNumber;
-    let DateExp = req.body.dateExp;
+    let nom = req.body.nom;
+    let CardNumber = req.body.card_Number;
+    let DateExp = req.body.date_Exp;
     let Cvs = req.body.cvs;
-    let idRes = req.body.idRes;
+    let Id_Res = req.body.idRes;
+    let id_client = req.body.idClient;
  
-    let query = "INSERT INTO `payment` (name, cardNumber, dateExp,cvs,idReservation) VALUES ('" + Name + "', '" + card_number + "', '" + DateExp + "', '" + Cvs + "', '" + idRes + "')";
+  
+    let query = "INSERT INTO `paiment` (idReservation,nom, cardNumber,dateExp, cvs ) VALUES ('" + Id_Res + "','" + nom + "', '" + CardNumber + "', '" + DateExp + "', '" + Cvs + "')";
     db.query(query, (err, result) => {
         if (err) {
             return res.status(500).send(err);
         }
-        
+     
+        db.query(`SELECT v.ville_depart,v.ville_arrive,v.heur_depart,v.heur_arrive,v.date_depart,v.date_arrive,v.escale,c.Nom,c.Prenom,c.email,r.nbrPlaceReserver FROM vols AS v INNER JOIN client AS c INNER JOIN reservation AS r ON v.IdVol = r.IdVol WHERE r.IdReservation=${Id_Res} AND c.idClient = ${id_client}`, function (err, rows, fields) {
+            if (err) throw err;
+
+
+            res.render('thanks', {
+                rows: rows,
+
+            });
+
+                    // write to a new file named 2pac.txt
+fs.appendFileSync('history.txt',"\nNom et Prenom :" +  rows[0].Nom  +" " +  rows[0].Prenom  +" \nville de départ :" + rows[0].ville_depart + "\nville d’arrivé :"+ rows[0].ville_arrive + "\nl’heure départ :" + rows[0].heur_depart + "\nl’heure d’arrivé :" + rows[0].heur_arrive + "\nla date de départ :" + rows[0].date_depart + "\nla date d'arrivé :" + rows[0].date_arrive + "\nescale : " + rows[0].escale + "\nnombre de places que vous avez réservées: " + rows[0].nbrPlaceReserver , (err) => {
+    // throws an error, you could also catch it here
+    if (err) throw err;
+
+    // success case, the file was saved
+    console.log(' saved!');
+});
+
+         
+
+        });
+
+
+
     });
-    res.redirect('/');
+
 
 });
 

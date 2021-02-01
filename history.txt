@@ -1,0 +1,9 @@
+Nom et Prenom ELHANCHAOUI  Taoufiq 
+ville de départ :agadir
+ville d’arrivé :casa
+l’heure départ :12:00
+l’heure d’arrivé :9:00
+la date de départ :2021/02/11
+la date d'arrivé :2021/02/11
+escale : Agadir/casa/fes
+nombre de places que vous avez réservées: 2
