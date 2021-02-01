@@ -24,7 +24,7 @@
                         <div class="row align-items-center">
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="/">
                                         <img class="logo" src="img/logo.png" alt="">
                                     </a>
                                 </div>
@@ -33,9 +33,9 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a class="active" href="acceuil.html">Acceuil</a></li>
-                                            <li><a class="" href="reservation.html">Reservation</a></l/li> <li><a
-                                                    href="confirmation.html">Cofirmation</a></li>
+                                            <li><a href="/search">Acceuil</a></li>
+                                            <li><a href="/reservation">Reservation</a></li>
+                                            <li><a href="/confirmation">Cofirmation</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -64,47 +64,33 @@
             Reservation Détails
         </div>
 
-        <form class="card-body">
+
+        <form class="card-body" action="/lastCheck" method="POST">
             <div class="infos">
-                <h5 class="card-title">Nom : </h5>
-                <h5 class="card-title">Prénom : </h5>
-                <h5 class="card-title">Téléphone : </h5>
-                <h5 class="card-title">Ville de départ : </h5>
-                <h5 class="card-title">Ville d'arrivé : </h5>
-                <h5 class="card-title">Heur de départ : </h5>
-                <h5 class="card-title">Heur d'arrivé : </h5>
-                <h5 class="card-title">Date de départ : </h5>
-                <h5 class="card-title">Date d'arrivé : </h5>
-                <h5 class="card-title">Nombre de Place : </h5>
+                <h5 class="card-title">Nom :                      <%= nom  %></h5>
+                <h5 class="card-title">Prénom :                   <%= prenom  %></h5>
+                <h5 class="card-title">Téléphone :                <%= ntel  %></h5>
+                <h5 class="card-title">Ville de départ :          <%= rows[0].ville_depart  %></h5>
+                <h5 class="card-title">Ville d'arrivé :           <%= rows[0].ville_arrive  %></h5>
+                <h5 class="card-title">Heur de départ :           <%= rows[0].heur_depart  %></h5>
+                <h5 class="card-title">Heur d'arrivé :            <%= rows[0].heur_arrive  %></h5>
+                <h5 class="card-title">Date de départ :           <%= rows[0].date_depart  %></h5>
+                <h5 class="card-title">Date d'arrivé :            <%= rows[0].date_arrive  %></h5>
+                <h5 class="card-title">Nombre de Place Reservee : <%= nbrPlace  %></h5>
 
             </div>
+            <input type="hidden"  name="idClient" value="<%= lastId  %>" >
+            <input type="hidden"  name="idVol" value="<%= idVol  %>">
+            <input type="hidden"  name="nbrPlace" value="<%= nbrPlace  %>" >
+
             <div>
                 <img class="ticket" src="img/ticket.png" alt="">
             </div>
     </div>
-    <button id="confirmé" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Confirmé</button>
+    <button id="confirmé" type="submit" class="btn btn-warning" >Confirmé</button>
     </div>
     </form>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">confirmation</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Réserver votre billet
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">fermé</button>
-                    <button  type="button" class="btn btn-warning" ><a href="home.php">Confirmé</a></button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <footer class="footer">
         <div class="footer_top">
@@ -226,9 +212,15 @@
             </div>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

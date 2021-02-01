@@ -1,0 +1,358 @@
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css';
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+/* html {
+	 box-sizing: inherit;
+	 background: linear-gradient(to left, #8e9eab, #eef2f3);
+} */
+
+body {
+	text-align: center;
+	font-size: 12px;
+	position: relative;
+	height: 100%;
+	background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-2.jpg');
+	background-size: cover;
+	overflow: auto;
+
+
+
+}
+
+.input-icons i {
+	position: absolute;
+}
+
+.input-icons {
+	width: 100%;
+	margin-bottom: 10px;
+	border: none;
+	border-color: #c3953f;
+
+}
+
+.icon {
+	padding: 10px;
+	color: #c3953f;
+	min-width: 50px;
+	text-align: center;
+}
+
+.input-field {
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	border-color: #c3953f;
+	border-radius: 20px;
+	box-sizing: border-box;
+	border: none;
+	OUTLINE: none;
+}
+
+h2 {
+	color: #c3953f;
+}
+
+.button1 {
+
+	background-color: #c3953f;
+	color: white;
+	padding: 10px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.button1:hover {
+	background-color: #ffc107;
+}
+
+.iconAdmin {
+	color: #c3953f;
+	font-size: 60px;
+}
+
+.iconAdmin:hover {
+	color: #ffc107;
+}
+
+.form {
+	border-radius: 10px;
+	position: relative;
+	background: linear-gradient(to bottom, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+	transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+	transform: scale(1);
+	padding: 25px;
+}
+
+.iconAdmin {
+	position: relative;
+	display: inline-block;
+
+}
+
+.tooltiptext {
+
+	font-size: 11px;
+	width: 100%;
+}
+
+.iconAdmin .tooltiptext {
+	visibility: hidden;
+
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 8px 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+}
+
+.iconAdmin:hover .tooltiptext {
+	visibility: visible;
+}
+.Section{
+
+    min-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    z-index: 2;
+}
+.Section .div{   
+  position: relative;
+  margin-top: 30px;
+  width: 358px;
+  height: 460px;
+  grid-row-end: 400px;
+   background: rgb(172, 171, 170);
+   overflow: hidden;
+   transition: 0.5;
+   z-index: 2;
+   box-sizing: border-box;
+   padding: 30px;
+   box-shadow: -10px 25px 50px rgba(0,0,0,.2);
+   border-radius: 5px;
+}
+.Section .div:hover{
+    box-shadow: -10px 25px 50px rgba(0,0,0,.5);
+}
+.Section .div p{
+    margin-top: 30px;
+    padding: 0;
+    font-size: 17px;
+    word-break: break-all;
+    text-align: center;
+    text-shadow: rgb(221, 206, 168) 1px 2px 1px;
+}
+
+.Section .div:hover p{
+    color: #fff;
+}
+
+.Section .div h2{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+    text-transform: uppercase;
+    
+}
+.Section .div h6{
+    position: absolute;
+    bottom: 7px;
+    right: 30px;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+
+
+}
+.Section .div:hover h2{
+    color: #fff;
+}
+.Section .div:hover h6{
+    color: #fff;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button a {
+    margin-top: 10px;
+    margin: 10px;
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.button a:hover{
+  border: 1px solid #f08624;
+  border-radius: 10px;
+  background: linear-gradient(rgb(72, 229, 235), rgb(186, 96, 238));
+  color: black;
+  
+  
+} 
+
+ .button a span {
+    position: relative;
+    z-index: 3;
+}
+
+
+.Section .div:hover ~ .bg,
+.Section .div:hover{
+    opacity: 2.2;
+    transform: scale(1.1);
+    background: linear-gradient(rgb(72, 229, 235), rgb(186, 96, 238));
+}
+
+
+/* Page AddPage & editPage Css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+#body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: black;
+}
+
+.container{
+    width: 80%;
+    padding: 20px;
+    
+}
+.container h2{
+    width: 100%;
+    color:white;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.container .row100{
+    position: relative;
+    width: 50%;
+    margin-left: 25%;
+   
+
+}
+
+.container .row100 .col{
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    margin: 30px 0 10px;
+    transition: 0.5s;
+}
+.container .row100 .inputBox{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: #f08624;
+    
+}
+.container .row100 .inputBox input{
+
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+
+    outline: none;
+    font-size: 16px;
+    padding: 0 10px;
+    z-index: 1;
+    color: white;
+}
+.container .row100 .inputBox .text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 30px;
+    font-size: 15px;
+    padding: 0 10px;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.container .row100 .inputBox input:focus + .text,
+.container .row100 .inputBox input:valid + .text{
+    top: -35px;
+    left: -10px;
+}
+
+.container .row100 .inputBox .line{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+
+    transition: 0.5s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.container .row100 .inputBox input:focus ~ .line,
+.container .row100 .inputBox input:valid ~ .line{
+    height: 100%;
+}
+/* .container .row100 .inputBox .textarea {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+} */
+
+
+/* .container .row100 .inputBox textarea:focus + .text,
+.container .row100 .inputBox textarea:valid + .text{
+    top: -35px;
+    left: -10px;
+}
+.container .row100 .inputBox textarea:focus ~ .line,
+.container .row100 .inputBox textarea:valid ~ .line{
+    height: 100%;
+} */
+
+.btn{
+    border: none;
+    padding: 7px 35px;
+    cursor: pointer;
+    outline: none;
+    background: #f19069;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    border-radius: 5px;
+  
+}
+.btn:hover{
+     color: black;
+}

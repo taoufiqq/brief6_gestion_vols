@@ -4,53 +4,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Reservation</title>
+    <title>Details vols</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-    table,
-    th,
-    td {
-      border: 1px solid black;
-      color: white;
-    }
+    <script src="https://kit.fontawesome.com/c2035ffa68.js" crossorigin="anonymous"></script>
 
-    input[type=text],
-    select {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    input[type=submit] {
-      width: 50%;
-      background-color: black;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    input[type=submit]:hover {
-      background-color: black;
-    }
-
-    
-  </style>
+<link rel="stylesheet" href="/css/bootstrap.min.css">    
+<link rel="stylesheet" href="/css/style.css">
 </head>
 
+
+
 <body>
+
     <header>
         <div class="header-area ">
             <div id="sticky-header" class="main-header-area">
@@ -59,8 +26,8 @@
                         <div class="row align-items-center">
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html">
-                                        <img class="logo" src="img/logo.png" alt="">
+                                    <a href="/">
+                                        <img class="logo" src="/img/logo.png" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -68,9 +35,9 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a class="active" href="acceuil.html">Acceuil</a></li>
-                                            <li><a class="" href="reservation.html">Reservation</a></l/li> <li><a
-                                                    href="confirmation.html">Cofirmation</a></li>
+                                            <li><a  href="/search">Acceuil</a></li>
+                                            <li><a href="/reservation">Reservation</a></li>
+                                            <li><a href="/confirmation">Confirmation</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -89,41 +56,83 @@
             </div>
         </div>
     </header>
-    <div class="destination_banner_wrap overlay">
-        <div class="destination_text text-center">
-            <h3>Enjoy Your Flight</h3>
+    <div class="slider_area">
+        <div class="slider_active owl-carousel">
+            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-12 col-md-12">
+                            <div class="slider_text text-center">
+                                <h3>Find Your Flight With <br></h3>
+                                <p>Follow Your Dreams</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="card text-center">
-        <div class="card-header">
-            Vol Détails
+    <div class="where_togo_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <div class="form_area">
+                        <h3>Where you want to go?</h3>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-      
-
-
-</table>
-
-  <center>
-    <h3>Merci de remplir le formulaire : </h3>
-    <div style="width: 50%;
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      padding: 20px;">
-      <form method="POST" action="">
-        <label for="fname">Nom</label>
-        <input type="text" id="nom" name="nom" placeholder="Votre Nom... ">
-        <label for="fname"> Prénom</label>
-        <input type="text" id="prenom" name="nom" placeholder="Votre  Prénom...">
-        <label for="lname">EMail</label>
-        <input type="text" id="email" name="email" placeholder="Votre Email...">
-        <label for="lname">N° Tél</label>
-        <input type="text" id="ntel" name="ntel" placeholder="Votre N° Tél...">
-        <input type="submit">
-      </form>
+    </div>
+    <div class="section_title text-center mb_70">
+        <h3>Vol Details</h3>
+       
     </div>
 
-  </center>
+    <table class='table table-bordered'>
+        <thead>
+            <tr>
+                <th scope='col'>IdVol</th>
+                <th scope='col'>Ville de départ</th>
+                <th scope='col'>Ville d'arrivé</th>
+                <th scope='col'>Heur de départ</th>
+                <th scope='col'>Heur d'arrivé</th>
+                <th scope='col'>Date de départ</th>
+                <th scope='col'>Date d'arrivé</th>
+                <th scope='col'>NombrePlaceEncours</th>
+                <th scope='col'>Reserve now</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% rows.forEach(function(row){ %>
+            <tr>
+                <td><%=row.IdVol%> </td>
+                <td><%= row.ville_depart %></td>
+                <td><%= row.ville_arrive %></td>
+                <td><%= row.heur_depart %></td>
+                <td><%= row.heur_arrive%> </td>
+                <td><%= row.date_depart%></td>
+                <td><%= row.date_arrive%></td>
+                <td><%= row.nombrePlace%></td>
 
+                <td>
+
+              
+                   
+               
+                        <a href="/reservation?idVol=<%=row.IdVol%>&nbrPlace=<%=nbrPlace%> ">
+                        <i class="fas fa-plus iconReserver"> <span class="tooltiptext">Reserver</span></i>
+                        </a>
+                    
+                </td>
+            </tr>
+            <% });
+             %>
+        </tbody>
+    </table>
+
+    <br><br><br><br>
     <footer class="footer">
         <div class="footer_top">
             <div class="container">
@@ -132,10 +141,10 @@
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img class="logo" src="img/footer_logo.png" alt="">
+                                    <img class="logo" src="/img/footer_logo.png" alt="">
                                 </a>
                             </div>
-                            <p>MZY, YouCode <br> Safi, Morocco<br>
+                            <p>MZY , YouCode <br> Safi? Morocco<br>
                                 <a href="#">+212600000000</a> <br>
                                 <a href="#">contact@MZY.com</a>
                             </p>
@@ -209,32 +218,32 @@
                             <div class="instagram_feed">
                                 <div class="single_insta">
                                     <a href="#">
-                                        <img src="img/instagram/1.png" alt="">
+                                        <img src="/img/instagram/1.png" alt="">
                                     </a>
                                 </div>
                                 <div class="single_insta">
                                     <a href="#">
-                                        <img src="img/instagram/2.png" alt="">
+                                        <img src="/img/instagram/2.png" alt="">
                                     </a>
                                 </div>
                                 <div class="single_insta">
                                     <a href="#">
-                                        <img src="img/instagram/3.png" alt="">
+                                        <img src="/img/instagram/3.png" alt="">
                                     </a>
                                 </div>
                                 <div class="single_insta">
                                     <a href="#">
-                                        <img src="img/instagram/4.png" alt="">
+                                        <img src="/img/instagram/4.png" alt="">
                                     </a>
                                 </div>
                                 <div class="single_insta">
                                     <a href="#">
-                                        <img src="img/instagram/5.png" alt="">
+                                        <img src="/img/instagram/5.png" alt="">
                                     </a>
                                 </div>
                                 <div class="single_insta">
                                     <a href="#">
-                                        <img src="img/instagram/6.png" alt="">
+                                        <img src="/img/instagram/6.png" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -244,9 +253,16 @@
             </div>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</body>
-
 </html>
+
+
+
+
+
+<script>
+
+</script>
