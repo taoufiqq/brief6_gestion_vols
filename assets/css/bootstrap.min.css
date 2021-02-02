@@ -4675,14 +4675,16 @@ tbody.collapse.show {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     padding: 1.25rem;
-    border: 1px solid rgb(250, 198, 67);
+
     width: 60%;
     margin: auto;
     text-align: left;
     margin-top: 30px;
     margin-bottom: 30px;
     display: flex;
-    background-color: rgb(4, 14, 39);
+    
+    background: linear-gradient(to bottom, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+
     border-radius: 30px;
 }
 

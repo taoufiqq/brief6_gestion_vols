@@ -44,3 +44,13 @@ la date de départ :2021/02/11
 la date d'arrivé :2021/02/11
 escale : 
 nombre de places que vous avez réservées: 3
+
+Nom et Prenom :ELHANCHAOUI Taoufiq 
+ville de départ :Maroc
+ville d’arrivé :Paris
+l’heure départ :9AM
+l’heure d’arrivé :4PM
+la date de départ :2021/02/11
+la date d'arrivé :2021/02/11
+escale : 
+nombre de places que vous avez réservées: 3
