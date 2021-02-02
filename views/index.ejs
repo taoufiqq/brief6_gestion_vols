@@ -13,6 +13,18 @@
   <script src="https://kit.fontawesome.com/c2035ffa68.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="css/search.css">
+ <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="Stylesheet"
+        type="text/css" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+      <script language="javascript">
+        $(document).ready(function () {
+            $("#txtdate").datepicker({
+                minDate: 0
+            });
+        });
+    </script>
 
 </head>
 
@@ -59,8 +71,8 @@
               <div class="input-icons mb-4 "><i class="fas fa-map-marker-alt icon"></i><input type="text"
                   class="input-field" id="ville-arrive" name="ville_arrive" placeholder="Ville d'arrivé" required>
               </div>
-              <div class="input-icons mb-4"><i class="far fa-calendar-alt icon"></i><input type="date"
-                  class="input-field" id="date-depart" name="date_depart" placeholder="Date et Heur de départ" required>
+              <div class="input-icons mb-4"><i class="far fa-calendar-alt icon"></i>
+              <input type="text" class="input-field" id="txtdate" name="date_depart" placeholder="Date de départ" onfocus.value="''" required>
               </div>
               <div class="input-icons mb-4"><i class="fa fa-user icon"></i><input type="number" min="1" max="20"
                   class="input-field" id="nbrPlace" name="nombrePlace" placeholder="Nombre de Place" required>
@@ -72,18 +84,8 @@
       </div>
     </div>
 
-  </div>
-
-
-
-
-
-
-  
+  </div> 
  </div>
-
-
-
 </body>
 
 </html>

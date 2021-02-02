@@ -170,7 +170,7 @@ router.post("/payment", (req, res) => {
             });
 
                     // write to a new file named 2pac.txt
-fs.appendFileSync('history.txt',"\nNom et Prenom :" +  rows[0].Nom  +" " +  rows[0].Prenom  +" \nville de départ :" + rows[0].ville_depart + "\nville d’arrivé :"+ rows[0].ville_arrive + "\nl’heure départ :" + rows[0].heur_depart + "\nl’heure d’arrivé :" + rows[0].heur_arrive + "\nla date de départ :" + rows[0].date_depart + "\nla date d'arrivé :" + rows[0].date_arrive + "\nescale : " + rows[0].escale + "\nnombre de places que vous avez réservées: " + rows[0].nbrPlaceReserver , (err) => {
+fs.appendFileSync('history.txt',"\n\nNom et Prenom :" +  rows[0].Nom  +" " +  rows[0].Prenom  +" \nville de départ :" + rows[0].ville_depart + "\nville d’arrivé :"+ rows[0].ville_arrive + "\nl’heure départ :" + rows[0].heur_depart + "\nl’heure d’arrivé :" + rows[0].heur_arrive + "\nla date de départ :" + rows[0].date_depart + "\nla date d'arrivé :" + rows[0].date_arrive + "\nescale : " + rows[0].escale + "\nnombre de places que vous avez réservées: " + rows[0].nbrPlaceReserver , (err) => {
     // throws an error, you could also catch it here
     if (err) throw err;
 
